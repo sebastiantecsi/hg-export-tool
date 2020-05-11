@@ -277,7 +277,8 @@ def sanitize_name(name,what="branch", mapping={}):
   p=re.compile(b'_+')
   n=p.sub(b'_', n)
   
-  n="old/"+n;
+  if n != "master"
+    n="old/"+n;
   
   if n!=name:
     stderr_buffer.write(

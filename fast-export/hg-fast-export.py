@@ -276,10 +276,7 @@ def sanitize_name(name,what="branch", mapping={}):
   n=b'/'.join([dot(s) for s in n.split(b'/')])
   p=re.compile(b'_+')
   n=p.sub(b'_', n)
-  
-  if n != "master"
-    n="old/"+n;
-  
+
   if n!=name:
     stderr_buffer.write(
       b'Warning: sanitized %s [%s] to [%s]\n' % (what.encode(), name, n)

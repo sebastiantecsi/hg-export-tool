@@ -281,6 +281,7 @@ def sanitize_name(name,what="branch", mapping={}):
       b'-------- current name: %s from original [%s]\n' % (name, n)
     )
   if n!="master":
+    n = "old/" + n 
     stderr_buffer.write(
       b'##### current name: %s from original [%s]\n' % (name, n)
     )

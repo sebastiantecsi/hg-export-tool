@@ -267,6 +267,7 @@ def sanitize_name(name,what="branch", mapping={}):
     return mapping.get(name,name)
   n=mapping.get(name,name)
   n=n.replace("//", "_")
+  n=n.replace("/", "_")
   n=n.replace("__", "_")
   n=n.replace("__", "_")
   p=re.compile(b'([[ ~^:?\\\\*]|\.\.)')
@@ -275,7 +276,9 @@ def sanitize_name(name,what="branch", mapping={}):
   n=b'/'.join([dot(s) for s in n.split(b'/')])
   p=re.compile(b'_+')
   n=p.sub(b'_', n)
-
+  
+  n="old/"+n;
+  
   if n!=name:
     stderr_buffer.write(
       b'Warning: sanitized %s [%s] to [%s]\n' % (what.encode(), name, n)

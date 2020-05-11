@@ -277,6 +277,10 @@ def sanitize_name(name,what="branch", mapping={}):
   p=re.compile(b'_+')
   n=p.sub(b'_', n)
 
+  stderr_buffer.write(
+      b'-------- current name: %s from original [%s]\n' % (name, n)
+    )
+  
   if n!=name:
     stderr_buffer.write(
       b'Warning: sanitized %s [%s] to [%s]\n' % (what.encode(), name, n)
